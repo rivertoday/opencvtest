@@ -42,6 +42,12 @@ int videotrans() {
     // Based on above detected FourCC, we decide to choose MEPG-1 as encoder
     int myFourCC = VideoWriter::fourcc('P','I','M','1');//MPEG-1
     Size size = Size(vc.get(CAP_PROP_FRAME_WIDTH), vc.get(CAP_PROP_FRAME_HEIGHT));
+    if (size.width <= 0 || size.height <= 0) {
+        cout << "ERROR while get the width or the height" << endl;
+    }
+    else {
+        cout << "width: " << size.width << "\nheight: " << size.height << endl;
+    }
     VideoWriter vw("lulei_trans.avi", // 输出视频文件名
         myFourCC,//(int)vc.get(CAP_PROP_FOURCC), // 也可设为FOURCC_PROMPT，在运行时选取
         (double)vc.get(CAP_PROP_FPS), // 视频帧率

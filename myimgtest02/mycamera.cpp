@@ -9,17 +9,15 @@ using namespace cv;
 
 int mycamera()
 {
+    //打开摄像头
     VideoCapture videoCapture(0);
-    Size size = Size(videoCapture.get(CAP_PROP_FRAME_WIDTH), videoCapture.get(CAP_PROP_FRAME_HEIGHT));
-    if (size.width <= 0 || size.height <= 0) {
-        cout << "ERROR while get the width or the height" << endl;
+    if (!videoCapture.isOpened()) {
+        cout << "Video not open!" << endl;
+        system("pause");
+        return 1;
     }
-    else {
-        cout << "width: " << size.width << "\nheight: " << size.height << endl;
-    }
-    //int myFourCC = VideoWriter::fourcc('X', 'V', 'I', 'D');//avi
-    int myFourCC = VideoWriter::fourcc('m', 'p', '4', 'v');//mp4
-    //'m', 'p', '4', 'v'//'F','L','V','1'//'m', 'p', '4','2' //'m','p','4','v'//'d','i','v','x'
+
+    //获取FPS
     double rate = videoCapture.get(CAP_PROP_FPS);
     cout << "FPS from CAP_PROP_FPS:" << rate << endl;
 
@@ -53,15 +51,30 @@ int mycamera()
     rate = fps;
     cout << "###Finished calculating the FPS by myself, it is "<< rate << endl;
 
-
-    VideoWriter writer("camera_record.mp4", myFourCC, rate, size, true);
-
-    if (!videoCapture.isOpened()) {
-        cout << "Video not open!" << endl;
-        system("pause");
-        return 1;
+    //获取编码器
+    //int myFourCC = VideoWriter::fourcc('X', 'V', 'I', 'D');//avi
+    int myFourCC = VideoWriter::fourcc('m', 'p', '4', 'v');//mp4
+    //'m', 'p', '4', 'v'//'F','L','V','1'//'m', 'p', '4','2' //'m','p','4','v'//'d','i','v','x'
+    //获取尺寸
+    Size size = Size(videoCapture.get(CAP_PROP_FRAME_WIDTH), videoCapture.get(CAP_PROP_FRAME_HEIGHT));
+    if (size.width <= 0 || size.height <= 0) {
+        cout << "ERROR while get the width or the height" << endl;
+    }
+    else {
+        cout << "width: " << size.width << "\nheight: " << size.height << endl;
     }
 
+    //创建写入文件
+    VideoWriter writer("camera_record.mp4", myFourCC, rate, size, true);
+    //检查是否成功创建
+    if(!writer.isOpened()) {
+        cerr << "Can not create video file." << endl;
+        return -1;
+    }else {
+        cout << "Destination file has been created" << endl;
+    }
+
+    //将摄像头内容写入文件
     namedWindow("Live", WINDOW_AUTOSIZE);
 
     while (videoCapture.isOpened()) {
