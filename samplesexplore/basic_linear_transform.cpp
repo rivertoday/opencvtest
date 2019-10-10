@@ -22,6 +22,7 @@ int basic_linear_transform( int argc, char** argv )
     cout << "* Enter the beta value [0-100]: ";
     cin >> beta;
 
+    double t = (double)getTickCount();
     /// 执行运算 new_image(i,j) = alpha*image(i,j) + beta
     for( int y = 0; y < image.rows; y++ )
     {
@@ -37,6 +38,8 @@ int basic_linear_transform( int argc, char** argv )
             }
         }
     }
+    t = ((double)getTickCount() - t)/getTickFrequency();
+    cout << "double for loop time passed in seconds:     " << t << endl;
 
     /// 创建窗口
     namedWindow("Original Image", 1);
@@ -45,6 +48,11 @@ int basic_linear_transform( int argc, char** argv )
     /// 显示图像
     imshow("Original Image", image);
     imshow("New Image", new_image);
+
+    t = (double)getTickCount();
+    image.convertTo(new_image, -1, alpha, beta);
+    t = ((double)getTickCount() - t)/getTickFrequency();
+    cout << "image converTo function time passed in seconds:     " << t << endl;
 
     /// 等待用户按键
     waitKey();
