@@ -11,6 +11,20 @@ qt-unified-windows-x86-3.1.1-online.exe
 
 链接: https://pan.baidu.com/s/17tRswcwA-9LAaiWIgfWl8Q 提取码: zfgb 
 
+**注意**：
+
+debug调试运行，首先需要安装cdb，可以参考本文
+
+【Qt】Qt在Windows下的开发与调试环境配置
+
+[https://www.cnblogs.com/zzqcn/p/4245350.html](https://www.cnblogs.com/zzqcn/p/4245350.html)
+
+另外，需要在对应的debug文件夹下放置两个动态链接库文件
+
+来自opencv的build：opencv_world411d.dll
+
+来自Qt的：Qt5Cored.dll
+
 
 
 ## myimgtest02

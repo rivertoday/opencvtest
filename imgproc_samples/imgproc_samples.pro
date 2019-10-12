@@ -15,16 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        adding_images.cpp \
-        basic_linear_transform.cpp \
-        discrete_fourier_transform.cpp \
-        drawing_1.cpp \
-        drawing_2.cpp \
-        file_input_output.cpp \
-        how_to_scan_images.cpp \
-        interoperability_with_OpenCV_1.cpp \
-        main.cpp \
-        mat_mask_operations.cpp
+        Smoothing.cpp \
+        main.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -39,5 +31,3 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../opencv/build/x64/
 
 INCLUDEPATH += $$PWD/../../opencv/build/include
 DEPENDPATH += $$PWD/../../opencv/build/include
-
-
