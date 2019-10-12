@@ -7,8 +7,8 @@ using namespace std;
 using namespace cv;
 
 //定义图像的宽度和高度
-int w=320, h=320;
-Size wd(w, h);
+static int w=320, h=320;
+static Size wd(w, h);
 
 void MyLine( Mat img, Point start, Point end )
 {
@@ -28,8 +28,8 @@ void MyEllipse( Mat img, double angle )
     int lineType = 8;
 
     ellipse( img,
-            Point( w/2.0, w/2.0 ),
-            Size( w/4.0, w/16.0 ),
+            Point( static_cast<int>(w/2.0),  static_cast<int>(w/2.0) ),
+            Size( static_cast<int>(w/4.0), static_cast<int>(w/16.0) ),
             angle,
             0,
             360,
@@ -45,7 +45,7 @@ void MyFilledCircle( Mat img, Point center )
 
     circle( img,
            center,
-           w/32.0,
+           static_cast<int>(w/32.0),
            Scalar( 0, 0, 255 ),
            thickness,
            lineType );
@@ -57,26 +57,26 @@ void MyPolygon( Mat img )
 
     /** 创建一些点 */
     Point rook_points[1][20];
-    rook_points[0][0] = Point( w/4.0, 7*h/8.0 );
-    rook_points[0][1] = Point( 3*w/4.0, 7*h/8.0 );
-    rook_points[0][2] = Point( 3*w/4.0, 13*h/16.0 );
-    rook_points[0][3] = Point( 11*w/16.0, 13*h/16.0 );
-    rook_points[0][4] = Point( 19*w/32.0, 3*h/8.0 );
-    rook_points[0][5] = Point( 3*w/4.0, 3*h/8.0 );
-    rook_points[0][6] = Point( 3*w/4.0, h/8.0 );
-    rook_points[0][7] = Point( 26*w/40.0, h/8.0 );
-    rook_points[0][8] = Point( 26*w/40.0, h/4.0 );
-    rook_points[0][9] = Point( 22*w/40.0, h/4.0 );
-    rook_points[0][10] = Point( 22*w/40.0, h/8.0 );
-    rook_points[0][11] = Point( 18*w/40.0, h/8.0 );
-    rook_points[0][12] = Point( 18*w/40.0, h/4.0 );
-    rook_points[0][13] = Point( 14*w/40.0, h/4.0 );
-    rook_points[0][14] = Point( 14*w/40.0, h/8.0 );
-    rook_points[0][15] = Point( w/4.0, h/8.0 );
-    rook_points[0][16] = Point( w/4.0, 3*h/8.0 );
-    rook_points[0][17] = Point( 13*w/32.0, 3*h/8.0 );
-    rook_points[0][18] = Point( 5*w/16.0, 13*h/16.0 );
-    rook_points[0][19] = Point( w/4.0, 13*h/16.0) ;
+    rook_points[0][0] = Point( static_cast<int>(w/4.0), static_cast<int>(7*h/8.0) );
+    rook_points[0][1] = Point( static_cast<int>(3*w/4.0), static_cast<int>(7*h/8.0) );
+    rook_points[0][2] = Point( static_cast<int>(3*w/4.0), static_cast<int>(13*h/16.0) );
+    rook_points[0][3] = Point( static_cast<int>(11*w/16.0), static_cast<int>(13*h/16.0) );
+    rook_points[0][4] = Point( static_cast<int>(19*w/32.0), static_cast<int>(3*h/8.0) );
+    rook_points[0][5] = Point( static_cast<int>(3*w/4.0), static_cast<int>(3*h/8.0) );
+    rook_points[0][6] = Point( static_cast<int>(3*w/4.0), static_cast<int>(h/8.0) );
+    rook_points[0][7] = Point( static_cast<int>(26*w/40.0), static_cast<int>(h/8.0) );
+    rook_points[0][8] = Point( static_cast<int>(26*w/40.0), static_cast<int>(h/4.0) );
+    rook_points[0][9] = Point( static_cast<int>(22*w/40.0), static_cast<int>(h/4.0) );
+    rook_points[0][10] = Point( static_cast<int>(22*w/40.0), static_cast<int>(h/8.0) );
+    rook_points[0][11] = Point( static_cast<int>(18*w/40.0), static_cast<int>(h/8.0) );
+    rook_points[0][12] = Point( static_cast<int>(18*w/40.0), static_cast<int>(h/4.0) );
+    rook_points[0][13] = Point( static_cast<int>(14*w/40.0), static_cast<int>(h/4.0) );
+    rook_points[0][14] = Point( static_cast<int>(14*w/40.0), static_cast<int>(h/8.0) );
+    rook_points[0][15] = Point( static_cast<int>(w/4.0), static_cast<int>(h/8.0) );
+    rook_points[0][16] = Point( static_cast<int>(w/4.0), static_cast<int>(3*h/8.0) );
+    rook_points[0][17] = Point( static_cast<int>(13*w/32.0), static_cast<int>(3*h/8.0) );
+    rook_points[0][18] = Point( static_cast<int>(5*w/16.0), static_cast<int>(13*h/16.0) );
+    rook_points[0][19] = Point( static_cast<int>(w/4.0), static_cast<int>(13*h/16.0)) ;
 
     const Point* ppt[1] = { rook_points[0] };
     int npt[] = { 20 };
@@ -110,7 +110,7 @@ int drawing_1()
     MyEllipse( atom_image, -45 );
 
     /// 1.b. 创建圆
-    MyFilledCircle( atom_image, Point( w/2.0, h/2.0) );
+    MyFilledCircle( atom_image, Point( static_cast<int>(w/2.0), static_cast<int>(h/2.0)) );
 
     /// 2. 画一个赌棍
 
@@ -119,25 +119,25 @@ int drawing_1()
 
     /// 2.b. 创建矩形
     rectangle( rook_image,
-              Point( 0, 7*h/8.0 ),
+              Point( 0, static_cast<int>(7*h/8.0) ),
               Point( w, h),
               Scalar( 0, 255, 255 ),
               -1,
               8 );
 
     /// 2.c. 画几条直线
-    MyLine( rook_image, Point( 0, 15*h/16 ), Point( w, 15*h/16 ) );
-    MyLine( rook_image, Point( w/4, 7*h/8 ), Point( w/4, h ) );
-    MyLine( rook_image, Point( w/2, 7*h/8 ), Point( w/2, h ) );
-    MyLine( rook_image, Point( 3*w/4, 7*h/8 ), Point( 3*w/4, h ) );
+    MyLine( rook_image, Point( 0, static_cast<int>(15*h/16) ), Point( w, static_cast<int>(15*h/16) ) );
+    MyLine( rook_image, Point( static_cast<int>(w/4), static_cast<int>(7*h/8) ), Point( static_cast<int>(w/4), h ) );
+    MyLine( rook_image, Point( static_cast<int>(w/2), static_cast<int>(7*h/8) ), Point( static_cast<int>(w/2), h ) );
+    MyLine( rook_image, Point( static_cast<int>(3*w/4), static_cast<int>(7*h/8) ), Point( static_cast<int>(3*w/4), h ) );
 
     /// 创建窗口
-    namedWindow("Circle", 1);
-    namedWindow("Gambling", 1);
+    namedWindow(atom_window, 1);
+    namedWindow(rook_window, 1);
 
     /// 显示图像
-    imshow("Circle", atom_image);
-    imshow("Gambling", rook_image);
+    imshow(atom_window, atom_image);
+    imshow(rook_window, rook_image);
 
     /// 等待用户按键
     waitKey();

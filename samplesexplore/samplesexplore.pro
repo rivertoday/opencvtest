@@ -17,7 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         adding_images.cpp \
         basic_linear_transform.cpp \
+        discrete_fourier_transform.cpp \
+        drawing_1.cpp \
+        drawing_2.cpp \
+        file_input_output.cpp \
         how_to_scan_images.cpp \
+        interoperability_with_OpenCV_1.cpp \
         main.cpp \
         mat_mask_operations.cpp
 
