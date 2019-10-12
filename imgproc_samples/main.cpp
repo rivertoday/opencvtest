@@ -6,7 +6,10 @@ int main(int argc, char *argv[])
     //QCoreApplication a(argc, argv);
 
     //图像平滑处理
-    Smoothing(argc, argv );
+    //Smoothing(argc, argv );
+
+    //腐蚀与膨胀
+    Morphology_1(argc, argv );
 
 
     return 0;
