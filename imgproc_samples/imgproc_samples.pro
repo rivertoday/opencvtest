@@ -16,6 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         Morphology_1.cpp \
+        Morphology_2.cpp \
+        Pyramids.cpp \
         Smoothing.cpp \
         main.cpp
 
