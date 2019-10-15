@@ -4,4 +4,9 @@ int Smoothing( int argc, char ** argv );
 int Morphology_1( int argc, char** argv );
 int Morphology_2( int argc, char** argv );
 int Pyramids( int argc, char** argv );
+int MyThreshold( int argc, char** argv );
+int filter2D_demo ( int argc, char** argv );
+int copyMakeBorder_demo( int argc, char** argv );
+int Sobel_Demo( int argc, char** argv );
+int Laplace_Demo( int argc, char** argv );
 #endif // SAMPLEFUNCTIONS_H

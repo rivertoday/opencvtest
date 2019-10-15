@@ -39,12 +39,15 @@ int Pyramids( int argc, char** argv )
         return -1;
     }
     //![load]
+    //!
+    namedWindow( window_name, WINDOW_AUTOSIZE );
+    imshow( window_name, src );
 
     //![loop]
     for(;;)
     {
         //![show_image]
-        imshow( window_name, src );
+        //imshow( window_name, src );
         //![show_image]
         char c = (char)waitKey(0);
 
@@ -64,6 +67,10 @@ int Pyramids( int argc, char** argv )
             printf( "** Zoom Out: Image / 2 \n" );
         }
         //![pyrdown]
+
+        //![show_image]
+        imshow( window_name, src );
+
     }
     //![loop]
 

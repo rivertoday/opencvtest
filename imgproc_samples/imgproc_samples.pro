@@ -15,10 +15,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        Laplace_Demo.cpp \
         Morphology_1.cpp \
         Morphology_2.cpp \
+        MyThreshold.cpp \
         Pyramids.cpp \
         Smoothing.cpp \
+        Sobel_Demo.cpp \
+        copyMakeBorder_demo.cpp \
+        filter2D_demo.cpp \
         main.cpp
 
 # Default rules for deployment.
