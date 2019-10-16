@@ -30,7 +30,29 @@ int main(int argc, char *argv[])
     //Sobel_Demo(argc, argv);
 
     //Laplace 算子
-    Laplace_Demo(argc, argv);
+    //Laplace_Demo(argc, argv);
+
+    //Canny 边缘检测
+    //CannyDetector_Demo(argc, argv );
+
+    //霍夫变换
+    //houghlines(argc, argv);
+
+    //霍夫圆变换
+    //HoughCircle_Demo(argc, argv);
+
+    //Remapping 重映射
+    //Remap_Demo(argc, argv);
+
+    //仿射变换
+    //Geometric_Transforms_Demo(argc, argv);
+
+    //直方图均衡化
+    //EqualizeHist_Demo(argc, argv);
+
+    //直方图计算
+    calcHist_Demo(argc, argv);
+
 
 
     return 0;
