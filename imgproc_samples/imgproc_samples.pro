@@ -20,6 +20,7 @@ SOURCES += \
         Geometric_Transforms_Demo.cpp \
         HoughCircle_Demo.cpp \
         Laplace_Demo.cpp \
+        MatchTemplate_Demo.cpp \
         Morphology_1.cpp \
         Morphology_2.cpp \
         MyThreshold.cpp \
@@ -27,10 +28,14 @@ SOURCES += \
         Remap_Demo.cpp \
         Smoothing.cpp \
         Sobel_Demo.cpp \
+        calcBackProject_Demo1.cpp \
+        calcBackProject_Demo2.cpp \
         calcHist_Demo.cpp \
         copyMakeBorder_demo.cpp \
         filter2D_demo.cpp \
+        findContours_demo.cpp \
         houghlines.cpp \
+        hull_demo.cpp \
         main.cpp
 
 # Default rules for deployment.

@@ -16,4 +16,9 @@ int Remap_Demo(int argc, char** argv);
 int Geometric_Transforms_Demo( int argc, char** argv );
 int EqualizeHist_Demo( int argc, char** argv );
 int calcHist_Demo(int argc, char** argv);
+int calcBackProject_Demo1( int argc, char** argv);
+int calcBackProject_Demo2( int, char** argv );
+int MatchTemplate_Demo( int argc, char** argv );
+int findContours_demo( int argc, char** argv );
+int hull_demo( int argc, char** argv );
 #endif // SAMPLEFUNCTIONS_H

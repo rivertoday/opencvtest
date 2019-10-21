@@ -51,9 +51,20 @@ int main(int argc, char *argv[])
     //EqualizeHist_Demo(argc, argv);
 
     //直方图计算
-    calcHist_Demo(argc, argv);
+    //calcHist_Demo(argc, argv);
 
+    //反向投影
+    //calcBackProject_Demo1(argc, argv);
+    //calcBackProject_Demo2(argc, argv);
 
+    //模板匹配
+    //MatchTemplate_Demo(argc, argv );
+
+    //在图像中寻找轮廓
+    //findContours_demo(argc, argv );
+
+    //计算物体的凸包
+    hull_demo(argc, argv );
 
     return 0;
     //return a.exec();
