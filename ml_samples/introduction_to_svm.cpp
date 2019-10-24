@@ -86,7 +86,7 @@ int introduction_to_svm()
     }
     //! [show_vectors]
 
-    imwrite("result.png", image);        // save the image
+    imwrite("result_ls.png", image);        // save the image
 
     imshow("SVM Simple Example", image); // show it to the user
     waitKey();

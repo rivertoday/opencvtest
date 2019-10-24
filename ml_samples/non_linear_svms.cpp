@@ -41,11 +41,15 @@ int non_linear_svms()
     //! [setup1]
     // Generate random points for the class 1
     Mat trainClass = trainData.rowRange(0, nLinearSamples);
-    // The x coordinate of the points is in [0, 0.4)
-    Mat c = trainClass.colRange(0, 1);
+    // The x coordinate of the points is in [0, 0.4), in fact, the upper boundary is 0.4*WIDTH
+    //colRange(startCol, endCol),
+    //  startcol	An inclusive 0-based start index of the column span.
+    //  endcol	An exclusive 0-based ending index of the column span.
+    Mat c = trainClass.colRange(0, 1);//so, infact, this is the only first column
+    // https://docs.opencv.org/4.1.0/d1/dd6/classcv_1_1RNG.html#ad26f2b09d9868cf108e84c9814aa682d
     rng.fill(c, RNG::UNIFORM, Scalar(0), Scalar(0.4 * WIDTH));
-    // The y coordinate of the points is in [0, 1)
-    c = trainClass.colRange(1,2);
+    // The y coordinate of the points is in [0, 1), in fact, the upper boundary is 1*HEIGHT
+    c = trainClass.colRange(1,2);//so, infact, this is the only second column
     rng.fill(c, RNG::UNIFORM, Scalar(0), Scalar(HEIGHT));
 
     // Generate random points for the class 2
@@ -104,16 +108,21 @@ int non_linear_svms()
 
     //------------------------ 4. Show the decision regions ----------------------------------------
     //! [show]
-    Vec3b green(0,100,0), blue(100,0,0);
+    Vec3b green(0,100,0), blue(100,0,0), darkviolet(211,0,148);
+    Vec3b seagreen1(159,255,84), midnightblue(112,25,25);
     for (int i = 0; i < I.rows; i++)
     {
         for (int j = 0; j < I.cols; j++)
         {
-            Mat sampleMat = (Mat_<float>(1,2) << j, i);
+            Mat sampleMat = (Mat_<float>(1,2) << j, i);//一行两列
             float response = svm->predict(sampleMat);
 
             if      (response == 1) I.at<Vec3b>(i,j) = green;
             else if (response == 2) I.at<Vec3b>(i,j) = blue;
+            else {
+                cout << "We found a point could not be predicted!" << endl;
+                I.at<Vec3b>(i,j) = darkviolet;
+            }
         }
     }
     //! [show]
@@ -150,7 +159,7 @@ int non_linear_svms()
     }
     //! [show_vectors]
 
-    imwrite("result.png", I);                      // save the Image
+    imwrite("result_nls.png", I);                      // save the Image
     imshow("SVM for Non-Linear Training Data", I); // show it to the user
     waitKey();
     return 0;
