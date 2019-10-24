@@ -64,7 +64,10 @@ int main(int argc, char *argv[])
     //findContours_demo(argc, argv );
 
     //计算物体的凸包
-    hull_demo(argc, argv );
+    //hull_demo(argc, argv );
+
+    //多边形测试
+    pointPolygonTest_demo();
 
     return 0;
     //return a.exec();

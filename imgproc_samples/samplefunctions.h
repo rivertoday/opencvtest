@@ -21,4 +21,5 @@ int calcBackProject_Demo2( int, char** argv );
 int MatchTemplate_Demo( int argc, char** argv );
 int findContours_demo( int argc, char** argv );
 int hull_demo( int argc, char** argv );
+int pointPolygonTest_demo( void );
 #endif // SAMPLEFUNCTIONS_H
